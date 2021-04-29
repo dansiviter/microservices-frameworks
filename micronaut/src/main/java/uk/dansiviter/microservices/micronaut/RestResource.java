@@ -12,8 +12,8 @@ import uk.dansiviter.microservices.ResponseUtil;
  */
 @Controller("/hello")
 public class RestResource {
-    @Get(uri = "/{name}", produces = MediaType.TEXT_PLAIN)
+	@Get(uri = "/{name}", produces = MediaType.TEXT_PLAIN)
 	public Single<String> hello(String name) {
-        return Single.just(ResponseUtil.create(name));
-    }
+		return Single.just(ResponseUtil.create(name));
+	}
 }

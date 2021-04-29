@@ -1,7 +1,6 @@
 package uk.dansiviter.microservices.helidon;
 
 import java.lang.management.ManagementFactory;
-import java.net.InetAddress;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;

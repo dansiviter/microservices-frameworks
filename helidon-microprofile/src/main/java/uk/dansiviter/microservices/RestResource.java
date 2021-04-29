@@ -12,6 +12,6 @@ public class RestResource {
 	@GET
 	@Produces(TEXT_PLAIN)
 	public String hello(@PathParam("name") String name) {
-        return ResponseUtil.create(name);
-    }
+				return ResponseUtil.create(name);
+		}
 }

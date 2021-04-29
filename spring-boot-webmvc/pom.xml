@@ -9,10 +9,6 @@
 	<artifactId>spring-boot-webmvc</artifactId>
 	<name>Spring Boot Web MVC</name>
 
-	<properties>
-		<spring-boot.version>2.3.4.RELEASE</spring-boot.version>
-	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>

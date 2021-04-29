@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class RestResource {
 	@GetMapping(path = "/hello/{name}", produces = TEXT_PLAIN_VALUE)
 	public String hello(@PathVariable("name") String name) {
-        return ResponseUtil.create(name);
-    }
+				return ResponseUtil.create(name);
+		}
 }

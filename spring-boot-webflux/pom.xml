@@ -9,10 +9,6 @@
 	<artifactId>spring-boot-webflux</artifactId>
 	<name>Spring Boot WebFlux</name>
 
-	<properties>
-		<spring-boot.version>2.3.4.RELEASE</spring-boot.version>
-	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>

@@ -12,15 +12,15 @@ public class Main {
 		Routing routing = Routing.builder()
 			.get("/hello/{name}", (req, res) -> res.send(ResponseUtil.create(req.path().param("name")))).build();
 		WebServer server = WebServer.builder()
-			  .port(8080)
-			  .routing(routing)
-			  .build()
-			  .start()
-			  .toCompletableFuture()
-			  .get();
+				.port(8080)
+				.routing(routing)
+				.build()
+				.start()
+				.toCompletableFuture()
+				.get();
 
 		long initializationElapsedTime = ManagementFactory.getRuntimeMXBean().getUptime();
 		System.out.println("Server started on http://localhost:" + server.port() + " (and all other host addresses)"
-			  + " in " + initializationElapsedTime + " milliseconds (since JVM startup).");
+				+ " in " + initializationElapsedTime + " milliseconds (since JVM startup).");
 	}
 }

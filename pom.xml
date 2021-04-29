@@ -17,12 +17,18 @@
 	</licenses>
 
 	<properties>
-		<java.version>14</java.version>
+		<java.version>15</java.version>
 		<maven.compiler.release>${java.version}</maven.compiler.release>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<helidon-v1.version>1.4.8</helidon-v1.version>
+		<helidon-v2.version>2.2.2</helidon-v2.version>
+		<micronaut.version>2.5.0</micronaut.version>
+		<quarkus.version>1.13.3.Final</quarkus.version>
+		<spring-boot.version>2.4.5</spring-boot.version>
 	</properties>
 
 	<modules>

@@ -14,7 +14,7 @@
 			<dependency>
 				<groupId>io.helidon</groupId>
 				<artifactId>helidon-bom</artifactId>
-				<version>2.1.0</version>
+				<version>${helidon-v2.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
