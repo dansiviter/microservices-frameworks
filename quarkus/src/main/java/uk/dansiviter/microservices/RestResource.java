@@ -4,7 +4,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
-@Path("/")
+@Path("/hello")
 public class RestResource {
 	@GET
 	@Path("{name}")

@@ -5,7 +5,7 @@ import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
 @ApplicationScoped
-@ApplicationPath("/hello")
+@ApplicationPath("/")
 public class ApplicationInitialiser extends Application {
 //....
 }
