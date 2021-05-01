@@ -25,6 +25,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+		<dropwizard.version>2.0.21</dropwizard.version>
 		<helidon.version>2.2.2</helidon.version>
 		<micronaut.version>2.5.0</micronaut.version>
 		<quarkus.version>1.13.3.Final</quarkus.version>
@@ -34,6 +35,8 @@
 
 	<modules>
 		<module>core</module>
+		
+		<module>dropwizard</module>
 		<module>helidon-se</module>
 		<module>helidon-mp</module>
 		<module>micronaut</module>

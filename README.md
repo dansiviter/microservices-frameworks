@@ -3,6 +3,7 @@
 # Microservices Frameworks #
 
 This project demonstrates some very simple microservices that conform to the same specification:
+* [Dropwizard](./dropwizard)
 * [Helidon SE - Reactive server](./helidon-se/)
 * [Helidon MP - Microprofile](./helidon-mp/)
 * [Micronaut](./micronaut/)
