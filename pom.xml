@@ -5,6 +5,7 @@
 	<artifactId>parent</artifactId>
 	<version>0.1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
+	<name>Microservice Frameworks</name>
 
 	<url>https://gitlab.com/dansiviter/spring-boot-vs</url>
 
@@ -24,36 +25,52 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<helidon-v1.version>1.4.8</helidon-v1.version>
-		<helidon-v2.version>2.2.2</helidon-v2.version>
+		<helidon.version>2.2.2</helidon.version>
 		<micronaut.version>2.5.0</micronaut.version>
 		<quarkus.version>1.13.3.Final</quarkus.version>
 		<spring-boot.version>2.4.5</spring-boot.version>
+		<vertx.version>4.0.3</vertx.version>
 	</properties>
 
 	<modules>
 		<module>core</module>
-		<module>helidon</module>
-		<module>helidon-v1</module>
-		<module>helidon-microprofile</module>
-		<module>helidon-microprofile-v1</module>
+		<module>helidon-se</module>
+		<module>helidon-mp</module>
 		<module>micronaut</module>
 		<module>quarkus</module>
 		<module>spring-boot-webflux</module>
 		<module>spring-boot-webmvc</module>
+		<module>vertx</module>
 	</modules>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>[5.7.1,5.8)</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest</artifactId>
+			<version>[2.2,3.0)</version>
+			<scope>test</scope>
+		</dependency>
 		<dependency>
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured</artifactId>
-			<version>4.3.1</version>
+			<version>[4.3,4.4)</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M5</version>
+			</plugin>
 			<plugin>
 				<groupId>org.owasp</groupId>
 				<artifactId>dependency-check-maven</artifactId>
