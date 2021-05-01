@@ -12,7 +12,8 @@ This project demonstrates some very simple microservices that conform to the sam
 * [Vert.x](./vertx)
 
 Config:
+* Entrypoint: `uk.dansiviter.microservices.{framework}.Main`
 * Port: `8080`
 * URIs:
   * `GET /hello/{name}`: Respond with `Hello {name}!`.
-  * `GET /hello/error`: Throw a `CustomException` which should map to a `400 Bad Request`.
+  * `GET /hello/error`: Throw a `CustomException` which should map to a `400 Oh no!`.
