@@ -1,4 +1,4 @@
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/dansiviter/microservices-frameworks/Build?style=flat-square)git remote -v
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/dansiviter/microservices-frameworks/Build?style=flat-square)
 
 # Microservices Frameworks #
 
