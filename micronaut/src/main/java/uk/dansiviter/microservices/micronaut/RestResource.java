@@ -4,6 +4,7 @@ import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.reactivex.Single;
+import uk.dansiviter.microservices.CustomException;
 import uk.dansiviter.microservices.ResponseUtil;
 
 /**
@@ -12,8 +13,13 @@ import uk.dansiviter.microservices.ResponseUtil;
  */
 @Controller("/hello")
 public class RestResource {
-    @Get(uri = "/{name}", produces = MediaType.TEXT_PLAIN)
+	@Get(uri = "/{name}", produces = MediaType.TEXT_PLAIN)
 	public Single<String> hello(String name) {
-        return Single.just(ResponseUtil.create(name));
-    }
+		return Single.just(ResponseUtil.create(name));
+	}
+
+	@Get(uri = "/error", produces = MediaType.TEXT_PLAIN)
+	public Single<String> error() {
+		throw new CustomException();
+	}
 }
