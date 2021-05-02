@@ -35,7 +35,7 @@
 
 	<modules>
 		<module>core</module>
-		
+		<module>benchmark</module>		
 		<module>dropwizard</module>
 		<module>helidon-se</module>
 		<module>helidon-mp</module>
@@ -79,6 +79,23 @@
 				<artifactId>dependency-check-maven</artifactId>
 				<version>6.0.3</version>
 			</plugin>
+			<plugin>
+        <groupId>com.google.cloud.tools</groupId>
+        <artifactId>jib-maven-plugin</artifactId>
+        <version>3.0.0</version>
+        <configuration>
+					<containerizingMode>packaged</containerizingMode>
+					<from>
+						<image>adoptopenjdk/openjdk16:alpine</image>
+					</from>
+          <to>
+            <image>${project.artifactId}</image>
+						<tags>
+							<tag>${project.version}</tag>
+						</tags>
+          </to>
+        </configuration>
+      </plugin>
 		</plugins>
 	</build>
 </project>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>uk.dansiviter.microservices</groupId>
@@ -9,6 +10,12 @@
 	<artifactId>quarkus</artifactId>
 	<name>Quarkus</name>
 
+	<properties>
+		<jib.skip>true</jib.skip>
+		<quarkus.jib.base-jvm-image>adoptopenjdk/openjdk16:alpine</quarkus.jib.base-jvm-image>
+		<quarkus.container-image.name>${project.artifactId}</quarkus.container-image.name>
+	</properties>
+	
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -20,32 +27,32 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>core</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-resteasy</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-core-deployment</artifactId>
 			<scope>provided</scope>
 		</dependency>
-
 		<dependency>
 			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-junit5</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-container-image-jib</artifactId>
+		</dependency>
 	</dependencies>
-
+	
 	<build>
 		<plugins>
 			<plugin>
@@ -53,11 +60,11 @@
 				<artifactId>quarkus-maven-plugin</artifactId>
 				<version>${quarkus.version}</version>
 				<executions>
-						<execution>
-								<goals>
-										<goal>build</goal>
-								</goals>
-						</execution>
+					<execution>
+						<goals>
+							<goal>build</goal>
+						</goals>
+					</execution>
 				</executions>
 			</plugin>
 		</plugins>
