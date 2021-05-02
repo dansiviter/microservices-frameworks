@@ -23,3 +23,10 @@ To build:
 ```ps
 mvn clean package jib:dockerBuild "-Dquarkus.container-image.build=true"
 ```
+
+To Run benchmarks
+
+```
+docker run -p 8080:8080 -it --rm {module}:latest
+docker run --rm -it benchmark:latest
+```
