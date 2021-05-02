@@ -2,12 +2,13 @@ package uk.dansiviter.microservices.dropwizard;
 
 import io.dropwizard.Application;
 import io.dropwizard.Configuration;
+import io.dropwizard.configuration.ResourceConfigurationSourceProvider;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
 public class Main extends Application<Configuration> {
 	public static void main(String... args) throws Exception {
-		new Main().run("server");
+		new Main().run("server", "/config.yaml");
 	}
 
 	@Override
@@ -17,7 +18,7 @@ public class Main extends Application<Configuration> {
 
 	@Override
 	public void initialize(Bootstrap<Configuration> bootstrap) {
-			// nothing to do yet
+		bootstrap.setConfigurationSourceProvider(new ResourceConfigurationSourceProvider());
 	}
 
 	@Override
