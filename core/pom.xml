@@ -8,4 +8,8 @@
 	</parent>
 	<artifactId>core</artifactId>
 	<name>Core</name>
+
+	<properties>
+		<jib.skip>true</jib.skip>
+	</properties>
 </project>

@@ -18,3 +18,15 @@ Config:
 * URIs:
   * `GET /hello/{name}`: Respond with `Hello {name}!`.
   * `GET /hello/error`: Throw a `CustomException` which should map to a `400 Oh no!`.
+
+To build:
+```ps
+mvn clean package jib:dockerBuild "-Dquarkus.container-image.build=true"
+```
+
+To Run benchmarks
+
+```
+docker run -p 8080:8080 -it --rm {module}:latest
+docker run --rm -it benchmark:latest
+```
