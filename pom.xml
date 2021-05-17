@@ -18,7 +18,7 @@
 	</licenses>
 
 	<properties>
-		<java.version>15</java.version>
+		<java.version>16</java.version>
 		<maven.compiler.release>${java.version}</maven.compiler.release>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
@@ -26,9 +26,9 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<dropwizard.version>2.0.21</dropwizard.version>
-		<helidon.version>2.2.2</helidon.version>
-		<micronaut.version>2.5.0</micronaut.version>
-		<quarkus.version>1.13.3.Final</quarkus.version>
+		<helidon.version>2.3.0</helidon.version>
+		<micronaut.version>2.5.3</micronaut.version>
+		<quarkus.version>1.13.4.Final</quarkus.version>
 		<spring-boot.version>2.4.5</spring-boot.version>
 		<vertx.version>4.0.3</vertx.version>
 	</properties>
