@@ -55,6 +55,10 @@
 				<executions>
 					<execution>
 						<id>make-index</id>
+						<goals>
+							<goal>jandex</goal>
+						</goals>
+						<phase>process-classes</phase>
 					</execution>
 				</executions>
 			</plugin>
