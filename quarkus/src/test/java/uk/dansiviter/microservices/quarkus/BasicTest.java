@@ -13,11 +13,16 @@ import io.quarkus.test.junit.QuarkusTest;
 class BasicTest {
 	@Test
 	void hello() {
-		given().when().get("/foo").then().statusCode(200).body(is("Hello foo!"));
+		given().when().get("hello/foo").then().statusCode(200).body(is("Hello foo!"));
 	}
 
 	@Test
 	void error() {
-		given().when().get("/error").then().statusCode(400).body(is("Oh no!"));
+		given().when().get("hello/error").then().statusCode(400).body(is("Oh no!"));
+	}
+
+	@Test
+	void person() {
+		given().when().get("people/Lois").then().statusCode(200).body(is("Oh no!"));
 	}
 }

@@ -28,4 +28,11 @@ class BasicTest {
 		assertThat(actual.getStatus(), is(400));
 		assertThat(actual.readEntity(String.class), is("Oh no!"));
 	}
+
+	@Test
+	void people() throws Exception {
+		var actual = webTarget.path("/people/Lois").request().get();
+		assertThat(actual.getStatus(), is(200));
+		assertThat(actual.readEntity(String.class), is("{\"age\":41,\"name\":\"Lois\"}"));
+	}
 }

@@ -17,7 +17,7 @@ import io.micronaut.http.client.exceptions.HttpClientResponseException;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 
 @MicronautTest
-public class BaseTest {
+public class BasicTest {
 
 	@Inject
 	@Client("/")
@@ -38,5 +38,12 @@ public class BaseTest {
 		var actual = ex.getResponse();
 		assertThat(actual.status().getCode(), is(400));
 		assertThat(actual.getBody(String.class).get(), is("Oh no!"));
+	}
+
+	@Test
+	void people() {
+		var actual = client.toBlocking().exchange(HttpRequest.GET("/people/Lois"), String.class);
+		assertThat(actual.status().getCode(), is(200));
+		assertThat(actual.body(), is("{\"age\":41,\"name\":\"Lois\"}"));
 	}
 }

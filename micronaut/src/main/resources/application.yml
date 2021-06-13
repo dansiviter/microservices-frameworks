@@ -1,0 +1,16 @@
+micronaut:
+  application:
+    name: hello-world
+datasources:
+  default:
+    url: jdbc:h2:mem:app;INIT=RUNSCRIPT FROM 'classpath:META-INF/create.sql'
+    driverClassName: org.h2.Driver
+    username: sa
+    password: ''
+    dialect: H2
+jpa:
+  default:
+    entity-scan:
+        classpath: true
+        packages:
+        - 'uk.dansiviter.microservices'

@@ -18,6 +18,13 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+			<dependency>
+				<groupId>io.micronaut.data</groupId>
+				<artifactId>micronaut-data-bom</artifactId>
+				<version>${micronaut-data.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -42,6 +49,20 @@
 			<groupId>io.micronaut</groupId>
 			<artifactId>micronaut-http-server-netty</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>io.micronaut.data</groupId>
+			<artifactId>micronaut-data-processor</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.micronaut.data</groupId>
+			<artifactId>micronaut-data-hibernate-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.micronaut.sql</groupId>
+			<artifactId>micronaut-jdbc-hikari</artifactId>
+			<scope>runtime</scope>
+	</dependency>
 
 		<dependency>
 			<groupId>io.micronaut.test</groupId>

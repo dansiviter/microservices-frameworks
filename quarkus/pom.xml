@@ -14,7 +14,7 @@
 		<quarkus.jib.base-jvm-image>adoptopenjdk/openjdk16:alpine</quarkus.jib.base-jvm-image>
 		<quarkus.container-image.name>${project.artifactId}</quarkus.container-image.name>
 	</properties>
-	
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -38,6 +38,14 @@
 		</dependency>
 		<dependency>
 			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-hibernate-orm-panache</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
+			<artifactId>quarkus-jdbc-h2</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.quarkus</groupId>
 			<artifactId>quarkus-core-deployment</artifactId>
 			<scope>provided</scope>
 		</dependency>
@@ -51,7 +59,7 @@
 			<artifactId>quarkus-container-image-jib</artifactId>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>

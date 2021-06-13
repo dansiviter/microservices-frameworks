@@ -36,6 +36,13 @@ class BasicTest {
 		assertThat(actual.content().as(String.class).await(), is("Oh no!"));
 	}
 
+	@Test
+	void people() throws Exception {
+		var actual = webClient.get().path("/people/Lois").request().await();
+		assertThat(actual.status().code(), is(200));
+		assertThat(actual.content().as(String.class).await(), is("{\"age\":41,\"name\":\"Lois\"}"));
+	}
+
 	@AfterAll
 	static void stopServer() throws Exception {
 		if (webServer != null) {
