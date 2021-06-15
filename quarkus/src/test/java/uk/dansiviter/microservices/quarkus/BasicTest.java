@@ -6,11 +6,9 @@ import static org.hamcrest.Matchers.is;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import io.quarkus.test.common.http.TestHTTPEndpoint;
 import io.quarkus.test.junit.QuarkusTest;
 
 @QuarkusTest
-@TestHTTPEndpoint(RestResource.class)
 class BasicTest {
 	@Test
 	void hello() {
