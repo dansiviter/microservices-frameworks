@@ -30,7 +30,7 @@
 		<micronaut.version>2.5.5</micronaut.version>
 		<micronaut-data.version>2.4.4</micronaut-data.version>
 		<quarkus.version>1.13.7.Final</quarkus.version>
-		<spring-boot.version>2.5.0</spring-boot.version>
+		<spring-boot.version>2.5.1</spring-boot.version>
 		<vertx.version>4.1.0</vertx.version>
 	</properties>
 

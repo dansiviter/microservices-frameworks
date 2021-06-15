@@ -1,0 +1,9 @@
+{
+	"port": 8080,
+	"db": {
+		"driver_class": "org.h2.Driver",
+		"url": "jdbc:h2:mem:app;INIT=RUNSCRIPT FROM 'classpath:META-INF/create.sql'",
+		"user": "sa",
+		"password": ""
+	}
+}

@@ -2,32 +2,51 @@ package uk.dansiviter.microservices.springwebflux;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
+import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.web.reactive.function.BodyInserters;
-import org.springframework.web.reactive.function.server.RequestPredicates;
-import org.springframework.web.reactive.function.server.RouterFunction;
-import org.springframework.web.reactive.function.server.RouterFunctions;
-import org.springframework.web.reactive.function.server.ServerRequest;
-import org.springframework.web.reactive.function.server.ServerResponse;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.web.server.WebFilter;
 
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 import uk.dansiviter.microservices.CustomException;
-import uk.dansiviter.microservices.ResponseUtil;
 
 @Configuration
+@EnableJpaRepositories("uk.dansiviter.microservices.springwebflux")
 public class Controller {
 	@Bean
-	public RouterFunction<ServerResponse> route() {
-		return RouterFunctions
-				.route(RequestPredicates.GET("/hello/error").and(RequestPredicates.accept(MediaType.TEXT_PLAIN)), this::error)
-				.andRoute(RequestPredicates.GET("/hello/{name}").and(RequestPredicates.accept(MediaType.TEXT_PLAIN)),
-						this::hello);
-	}
+  public DataSource dataSource() {
+    EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
+    return builder.setType(EmbeddedDatabaseType.H2).addScript("META-INF/create.sql").build();
+  }
+
+  @Bean
+  public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+    HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+    vendorAdapter.setGenerateDdl(true);
+
+    LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
+    factory.setJpaVendorAdapter(vendorAdapter);
+    factory.setPackagesToScan("uk.dansiviter.microservices");
+    factory.setDataSource(dataSource());
+    return factory;
+  }
+
+  @Bean
+  public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
+    JpaTransactionManager txManager = new JpaTransactionManager();
+    txManager.setEntityManagerFactory(entityManagerFactory);
+    return txManager;
+  }
 
 	@Bean
 	WebFilter customExceptionHandler() {
@@ -37,14 +56,5 @@ public class Controller {
 			var buffer = response.bufferFactory().wrap(ex.getMessage().getBytes(UTF_8));
 			return response.writeWith(Flux.just(buffer));
 		});
-	}
-
-	public Mono<ServerResponse> error(ServerRequest request) {
-		throw new CustomException();
-	}
-
-	public Mono<ServerResponse> hello(ServerRequest request) {
-		return ServerResponse.ok().contentType(MediaType.TEXT_PLAIN)
-				.body(BodyInserters.fromValue(ResponseUtil.create(request.pathVariable("name"))));
 	}
 }

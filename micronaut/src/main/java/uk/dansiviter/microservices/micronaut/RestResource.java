@@ -12,10 +12,6 @@ import uk.dansiviter.microservices.CustomException;
 import uk.dansiviter.microservices.Person;
 import uk.dansiviter.microservices.ResponseUtil;
 
-/**
- * @author Graeme Rocher
- * @since 1.0
- */
 @Controller
 public class RestResource {
 	@Inject

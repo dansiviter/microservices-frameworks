@@ -22,7 +22,7 @@
 	</dependencyManagement>
 
 	<dependencies>
-	
+
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>core</artifactId>
@@ -31,8 +31,20 @@
 
 		<dependency>
 			<groupId>io.vertx</groupId>
+			<artifactId>vertx-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.vertx</groupId>
 			<artifactId>vertx-web</artifactId>
     </dependency>
+		<dependency>
+			<groupId>io.vertx</groupId>
+			<artifactId>vertx-jdbc-client</artifactId>
+		 </dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>io.vertx</groupId>

@@ -31,4 +31,11 @@ class BaseTest {
 		assertThat(actual.getStatusCode().value(), is(400));
 		assertThat(actual.getBody(), is("Oh no!"));
 	}
+
+	@Test
+	void people() {
+		var actual = this.restTemplate.getForEntity("http://localhost:" + port + "/people/Lois", String.class);
+		assertThat(actual.getStatusCode().value(), is(200));
+		assertThat(actual.getBody(), is("{\"name\":\"Lois\",\"age\":41}"));
+	}
 }
