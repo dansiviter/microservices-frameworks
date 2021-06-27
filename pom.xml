@@ -25,12 +25,12 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<dropwizard.version>2.0.21</dropwizard.version>
-		<helidon.version>2.3.0</helidon.version>
-		<micronaut.version>2.5.5</micronaut.version>
+		<dropwizard.version>2.0.23</dropwizard.version>
+		<helidon.version>2.3.1</helidon.version>
+		<micronaut.version>2.5.7</micronaut.version>
 		<micronaut-data.version>2.4.4</micronaut-data.version>
 		<quarkus.version>1.13.7.Final</quarkus.version>
-		<spring-boot.version>2.5.1</spring-boot.version>
+		<spring-boot.version>2.5.2</spring-boot.version>
 		<vertx.version>4.1.0</vertx.version>
 	</properties>
 
@@ -84,6 +84,20 @@
 				<groupId>org.owasp</groupId>
 				<artifactId>dependency-check-maven</artifactId>
 				<version>6.0.3</version>
+			</plugin>
+			<plugin>
+				<groupId>org.jboss.jandex</groupId>
+				<artifactId>jandex-maven-plugin</artifactId>
+				<version>1.1.0</version>
+				<executions>
+						<execution>
+								<id>make-index</id>
+								<goals>
+										<goal>jandex</goal>
+								</goals>
+								<phase>process-classes</phase>
+						</execution>
+				</executions>
 			</plugin>
 			<plugin>
         <groupId>com.google.cloud.tools</groupId>

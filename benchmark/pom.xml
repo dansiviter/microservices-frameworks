@@ -11,6 +11,7 @@
 
 	<properties>
 		<jib.container.mainClass>uk.dansiviter.microservices.benchmark.JmhMain</jib.container.mainClass>
+		<jib.container.jvmFlags>-ea</jib.container.jvmFlags>
 
 		<jmh.version>1.29</jmh.version>
 	</properties>

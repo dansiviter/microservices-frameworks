@@ -26,7 +26,8 @@ public class RestBenchmarks {
 	@State(Scope.Thread)
 	public static class RestState {
 		HttpClient client;
-		HttpRequest request;
+		HttpRequest helloRequest;
+		HttpRequest peopleRequest;
 
 		@Setup
     public void setupTrial() {
@@ -35,10 +36,25 @@ public class RestBenchmarks {
 
 		@Setup(Level.Iteration)
     public void setupItr() {
-			request = HttpRequest.newBuilder()
+			helloRequest = HttpRequest.newBuilder()
 						.uri(baseUri.resolve("/hello/bob"))
 						.build();
+			peopleRequest = HttpRequest.newBuilder()
+						.uri(baseUri.resolve("/people/Lois"))
+						.build();
 		}
+	}
+
+	@Benchmark
+	@BenchmarkMode(Mode.AverageTime)
+	@Threads(Threads.MAX)
+	@Measurement(timeUnit = TimeUnit.MICROSECONDS)
+	public void hello(RestState state, Blackhole blackhole)
+	throws IOException, InterruptedException
+	{
+		var response = state.client.send(state.helloRequest, BodyHandlers.ofString());
+		assert response.statusCode() == 200;
+		blackhole.consume(response.body());
 	}
 
 	@Benchmark
@@ -48,7 +64,8 @@ public class RestBenchmarks {
 	public void testMethod(RestState state, Blackhole blackhole)
 	throws IOException, InterruptedException
 	{
-		var body = state.client.send(state.request, BodyHandlers.ofString()).body();
-		blackhole.consume(body);
+		var response = state.client.send(state.peopleRequest, BodyHandlers.ofByteArray());
+		assert response.statusCode() == 200;
+		blackhole.consume(response.body());
 	}
 }

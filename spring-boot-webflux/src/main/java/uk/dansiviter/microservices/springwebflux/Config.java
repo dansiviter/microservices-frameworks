@@ -22,7 +22,7 @@ import uk.dansiviter.microservices.CustomException;
 
 @Configuration
 @EnableJpaRepositories("uk.dansiviter.microservices.springwebflux")
-public class Controller {
+public class Config {
 	@Bean
   public DataSource dataSource() {
     EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();

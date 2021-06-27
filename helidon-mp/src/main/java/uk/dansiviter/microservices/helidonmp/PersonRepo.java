@@ -11,7 +11,7 @@ import uk.dansiviter.microservices.Person;
 @ApplicationScoped
 public class PersonRepo {
 	@PersistenceContext
-	private EntityManager em;
+	EntityManager em;
 
 	public Optional<Person> get(String name) {
 		return Optional.ofNullable(this.em.find(Person.class, name));

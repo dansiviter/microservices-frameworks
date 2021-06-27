@@ -14,7 +14,7 @@ import uk.dansiviter.microservices.ResponseUtil;
 @Path("")
 public class RestResource {
 	@Inject
-	private PersonRepo repo;
+	PersonRepo repo;
 
 	@GET
 	@Path("/hello/{name}")
