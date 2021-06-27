@@ -23,12 +23,13 @@ public class Server extends AbstractVerticle {
 		router.route(HttpMethod.GET, "/hello/:name").handler(this::hello);
 		router.route(HttpMethod.GET, "/people/:name").handler(c -> people(c, client));
 		router.errorHandler(500, this::errorHandler);
+		var host = config().getString("host");
 		vertx.createHttpServer()
 			.requestHandler(router)
-			.listen(config().getInteger("port"))
+			.listen(config().getInteger("port"), host)
 			.onComplete(r -> {
 				var initializationElapsedTime = ManagementFactory.getRuntimeMXBean().getUptime();
-				System.out.printf("Server started on http://localhost:%d in %d milliseconds (since JVM startup).%n", r.result().actualPort(), initializationElapsedTime);
+				System.out.printf("Server started on http://%s:%d in %d milliseconds (since JVM startup).%n", host, r.result().actualPort(), initializationElapsedTime);
 			});
   }
 

@@ -26,7 +26,7 @@ import io.vertx.junit5.VertxTestContext;
 class BasicTest {
 	@WebClientOptionsInject
 	public WebClientOptions options = new WebClientOptions()
-		.setDefaultHost("localhost")
+		.setDefaultHost("0.0.0.0")
 		.setDefaultPort(8080);
 
 	@BeforeEach
