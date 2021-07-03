@@ -1,11 +1,14 @@
 package uk.dansiviter.microservices.helidonmp;
 
+import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
+
 import java.util.Optional;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
 
 import uk.dansiviter.microservices.CustomException;
 import uk.dansiviter.microservices.Person;
@@ -30,6 +33,7 @@ public class RestResource {
 
 	@GET
 	@Path("/people/{name}")
+	@Produces(APPLICATION_JSON)
 	public Optional<Person> people(@PathParam("name") String name) {
 		return this.repo.get(name);
 	}

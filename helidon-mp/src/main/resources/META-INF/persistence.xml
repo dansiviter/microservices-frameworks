@@ -12,6 +12,9 @@
 		<class>uk.dansiviter.microservices.Person</class>
 
 		<properties>
+			<property name="javax.persistence.schema-generation.database.action" value="create" />
+			<property name="javax.persistence.schema-generation.create-source" value="script"/>
+			<property name="javax.persistence.schema-generation.create-script-source" value="META-INF/create.sql" />
 			<property name="eclipselink.jdbc.native-sql" value="true"/>
 			<!-- <property name="eclipselink.logging.logger" value="JavaLogger"/>
 			<property name="eclipselink.logging.level" value="FINE" />
