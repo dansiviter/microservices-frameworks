@@ -27,6 +27,6 @@ mvn clean package jib:dockerBuild "-Dquarkus.container-image.build=true"
 To Run benchmarks
 
 ```
-docker run -p 8080:8080 -it --rm {module}:latest
-docker run --rm -it benchmark:latest
+docker run -p 8080:8080 -it --rm {module}:0.1.0-SNAPSHOT
+docker run --rm -it benchmark:0.1.0-SNAPSHOT
 ```
