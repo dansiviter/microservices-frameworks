@@ -29,7 +29,7 @@
 		<helidon.version>2.3.1</helidon.version>
 		<micronaut.version>2.5.7</micronaut.version>
 		<micronaut-data.version>2.4.4</micronaut-data.version>
-		<quarkus.version>1.13.7.Final</quarkus.version>
+		<quarkus.version>2.0.0.Final</quarkus.version>
 		<spring-boot.version>2.5.2</spring-boot.version>
 		<vertx.version>4.1.0</vertx.version>
 	</properties>
@@ -102,7 +102,7 @@
 			<plugin>
         <groupId>com.google.cloud.tools</groupId>
         <artifactId>jib-maven-plugin</artifactId>
-        <version>3.0.0</version>
+        <version>3.1.1</version>
         <configuration>
 					<containerizingMode>packaged</containerizingMode>
 					<from>
