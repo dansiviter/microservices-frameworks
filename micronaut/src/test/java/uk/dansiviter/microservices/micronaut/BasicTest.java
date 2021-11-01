@@ -10,22 +10,22 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import io.micronaut.http.HttpRequest;
+import io.micronaut.http.client.BlockingHttpClient;
 import io.micronaut.http.client.annotation.Client;
 import io.micronaut.http.client.exceptions.HttpClientResponseException;
-import io.micronaut.rxjava2.http.client.RxHttpClient;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import jakarta.inject.Inject;
 
-@MicronautTest(application = Main.class) @Disabled
+@MicronautTest(application = Main.class) //@Disabled
 public class BasicTest {
 
 	@Inject
 	@Client("/")
-	RxHttpClient client;
+	BlockingHttpClient client;
 
 	@Test
 	void hello() {
-		var actual = client.toBlocking().exchange(HttpRequest.GET("/hello/foo"), String.class);
+		var actual = client.exchange(HttpRequest.GET("/hello/foo"), String.class);
 		assertThat(actual.status().getCode(), is(200));
 		assertThat(actual.body(), is("Hello foo!"));
 	}
@@ -33,7 +33,7 @@ public class BasicTest {
 	@Test
 	void error() {
 		var ex = assertThrows(HttpClientResponseException.class,
-			() -> client.toBlocking().exchange(HttpRequest.GET("/hello/error")));
+			() -> client.exchange(HttpRequest.GET("/hello/error")));
 
 		var actual = ex.getResponse();
 		assertThat(actual.status().getCode(), is(400));
@@ -43,7 +43,7 @@ public class BasicTest {
 	@Test
 	@Disabled("No idea why but this hangs in test!")
 	void people() {
-		var actual = client.toBlocking().exchange(HttpRequest.GET("/people/Lois"), String.class);
+		var actual = client.exchange(HttpRequest.GET("/people/Lois"), String.class);
 		assertThat(actual.status().getCode(), is(200));
 		assertThat(actual.body(), is("{\"age\":41,\"name\":\"Lois\"}"));
 	}
