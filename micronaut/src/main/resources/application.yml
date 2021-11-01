@@ -11,6 +11,5 @@ datasources:
 jpa:
   default:
     entity-scan:
-        classpath: true
         packages:
         - 'uk.dansiviter.microservices'

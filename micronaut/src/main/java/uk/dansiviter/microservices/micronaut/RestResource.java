@@ -2,12 +2,11 @@ package uk.dansiviter.microservices.micronaut;
 
 import java.util.Optional;
 
-import javax.inject.Inject;
-
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.reactivex.Single;
+import jakarta.inject.Inject;
 import uk.dansiviter.microservices.CustomException;
 import uk.dansiviter.microservices.Person;
 import uk.dansiviter.microservices.ResponseUtil;

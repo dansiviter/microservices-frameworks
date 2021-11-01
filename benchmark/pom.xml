@@ -13,7 +13,7 @@
 		<jib.container.mainClass>uk.dansiviter.microservices.benchmark.JmhMain</jib.container.mainClass>
 		<jib.container.jvmFlags>-ea</jib.container.jvmFlags>
 
-		<jmh.version>1.29</jmh.version>
+		<jmh.version>1.32</jmh.version>
 	</properties>
 
 	<dependencies>
@@ -28,5 +28,33 @@
 			<version>${jmh.version}</version>
 			<scope>provided</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>com.github.docker-java</groupId>
+			<artifactId>docker-java</artifactId>
+			<version>3.2.11</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.docker-java</groupId>
+			<artifactId>docker-java-transport-httpclient5</artifactId>
+			<version>3.2.11</version>
+		</dependency>
+		<dependency>
+			<groupId>org.awaitility</groupId>
+			<artifactId>awaitility</artifactId>
+			<version>4.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest</artifactId>
+			<version>[2.2,3.0)</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.31</version>
+		</dependency>
+
 	</dependencies>
 </project>
